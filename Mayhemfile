@@ -1,8 +1,7 @@
 project: pykakasi
-target: pykakasi
+target: fuzz
 
-image: ghcr.io/ebell495/pykakasi:latest
-duration: 300
+tests: null
 
 cmds:
     - cmd: fuzz/fuzz.py
