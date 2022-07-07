@@ -3,14 +3,14 @@ import atheris
 import sys
 import pykakasi
 
+kks = pykakasi.kakasi()
+
 @atheris.instrument_func
 def TestOneInput(data):
-    kks = pykakasi.kakasi()
-    try:
-        st = data.decode("utf-8")
-    except UnicodeDecodeError:
-        return
-    kks.convert(st)
+    fdp = atheris.FuzzedDataProvider(data)
+    in_string = fdp.ConsumeUnicodeNoSurrogates(len(data))
+
+    kks.convert(in_string)
 
 atheris.instrument_all()
 atheris.Setup(sys.argv, TestOneInput)

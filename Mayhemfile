@@ -1,8 +1,6 @@
 project: pykakasi
-target: fuzz
-
-tests: null
+target: transliterate-fuzz
 
 cmds:
-    - cmd: fuzz/fuzz.py
+    - cmd: fuzz/transliterate-fuzz.py
       libfuzzer: true
